@@ -113,14 +113,14 @@
             endfunction
     " FoldLeft
         function FoldLeft()
-            if col(".")==1&&FoldLevel(line("."))!=0
+            if col(".")==1&&v:foldlevel!=0
                 foldclose
             endif
             call cursor(line("."), col(".")-1)
         endfunction
     " ExpandRight
         function ExpandRight()
-            if FoldLevel(line("."))!=0&&foldclosed(line("."))!=-1
+            if v:foldlevel!=0&&foldclosed(line("."))!=-1
                 foldopen
             else
                 call cursor(line("."), col(".")+1)
